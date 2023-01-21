@@ -1,0 +1,17 @@
+
+<form><section class="container">
+
+    <h1 class="text-center">LOGIN</h1>
+    <form method="post" action="home.html">
+         {% csrf_token %}
+<div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="name" class="form-control" id="name" name="name" placeholder="name@example.com">
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">password</label>
+    <textarea class="form-control" id="password" name="password" ></textarea>
+  </div>
+</section>
+</form>
+<button type="submit" class="btn btn-primary">Submit</button>
