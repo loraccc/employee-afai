@@ -4,4 +4,7 @@ urlpatterns = [
     path('login',views.login_user , name='login'),
     path('',views.INDEX,name='index'),
     path('add',views.ADD,name='add'),
+    path('edit',views.EDIT,name='edit'),   
+    path('update/<str:id>',views.UPDATE,name='update'),  
+
 ]
