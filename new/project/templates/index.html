@@ -275,7 +275,7 @@ table.table .avatar {
                         <td>{{i.Phone}}</td>
                         <td>
                             <a href="#editEmployeeModal-{{forloop.counter}}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            <a href="#deleteEmployeeModal-{{forloop.counter}}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                         </td>
                     </tr>
                     
@@ -371,7 +371,8 @@ table.table .avatar {
 	</div>
     {% endfor %}
 	<!-- Delete Modal HTML -->
-	<div id="deleteEmployeeModal" class="modal fade">
+    {%for i in emp %}
+	<div id="deleteEmployeeModal-{{forloop.counter}}" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form>
@@ -381,16 +382,17 @@ table.table .avatar {
 					</div>
 					<div class="modal-body">					
 						<p>Are you sure you want to delete these Records?</p>
-						<p class="text-warning"><small>This action cannot be undone.</small></p>
+						<p class="text-warning"><small>do you want to delete {{i.Name}} ?</small></p>
 					</div>
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-						<input type="submit" class="btn btn-danger" value="Delete">
+						<a href="/delete/{{i.id}}"  input type="submit" class="btn btn-danger" >Delete</a>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
+    {% endfor %}
 </body>
 <script>
     $(document).ready(function(){

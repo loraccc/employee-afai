@@ -45,7 +45,7 @@ def UPDATE(request,id):
         phone=request.POST.get('phone')
 
         
-        emp=Employee(
+        emp = Employee(
             id=id,
             Name=name,
             Email=email,
@@ -55,4 +55,15 @@ def UPDATE(request,id):
         return redirect('index')
     
     return redirect(request,'index.html')
+
+def DELETE(request,id):
+    emp=Employee.objects.filter(id=id)
+    emp.delete()
+    context={
+        'emp':emp,
+    }
+    return redirect('index')
+    return render(request,'index.html')
+
+
 
