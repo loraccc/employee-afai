@@ -337,14 +337,14 @@ table.table .avatar {
 	<div id="editEmployeeModal-{{forloop.counter}}" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form action="/update/{{i.id}}" method="post">
+				<form action="/update/{{i.id}}" method="POST">
                     {% csrf_token %}
 					<div class="modal-header">						
 						<h4 class="modal-title">Edit Employee</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">					
-						<div class="form-group">
+						<div class="form-group">                                   
 							<label>Name</label>
 							<input value={{i.Name}} name="name" type="text" class="form-control" required>
 						</div>
